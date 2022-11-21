@@ -1,0 +1,258 @@
+$background:#F7F7F7;
+$textground:#ECEFF0;
+$textcolor: #9EAAB4;
+$titlecolor:#333333;
+$whitecolor:#FFFFFF;
+
+@font-face {
+    font-family: "Inter";
+    src: url("@/assets/font/Inter.ttf");
+}
+
+@mixin font-style {
+    font-family: 'Inter';
+    font-style: normal;
+}
+@mixin button-style {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+@mixin table-flex {
+    display: flex;
+    max-width: 927px;
+    justify-content: space-between;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: $background;
+   
+}
+ 
+.title{
+    margin-top: 27px;
+    margin-bottom: 20px; 
+    @include font-style();                            
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: $titlecolor;
+}
+
+.search{
+    width: 961px;
+    height: 80px;
+    margin-bottom: 72px;
+    padding: 16px;
+    background: $whitecolor;
+    box-shadow: 0px 18px 15px rgba(148, 148, 148, 0.15);
+    border-radius: 7px;
+   
+    &__field{
+        background: $textground;
+        display: flex;
+        border-radius: 4px;
+        height: 34px;
+        & input {
+            @include font-style();
+            width: 95%;
+            border: none;
+            background: $textground;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 16px;
+            color: $textcolor;
+        }
+        & img {
+            margin-top: 5px;
+            margin-left: 5px;
+            height: 24px;
+            width: 24px;
+            margin-right: 16px;
+        }
+    }
+}
+
+.clearfilters {
+    display: flex;
+    margin-top: 24px;
+    
+    & button {
+        @include button-style();
+        padding-bottom: 16px;
+        
+        height: 16px;
+        background-color: $whitecolor;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        color: #4F4F4F;
+    }
+
+    & img {
+        
+        width: 16px;
+        height: 16px;
+       
+    }
+}
+
+.root {
+    width: 100%;
+    max-width: 961px;
+    margin: 0 auto;
+}
+
+.userstable{
+    @include font-style();
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    color: #9eaab4;
+    height: auto;
+    width: 961px;
+}
+
+.variants-sort {
+    button{
+        padding: 0;
+        margin-left: 9px;
+        text-decoration: none;
+        border: none;
+        background: #f7f7f7;
+        border-bottom: 1px dashed #333333;
+        &.active {
+            color: $textcolor;
+        }
+    }
+}
+        
+.table{    
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 961px;
+    margin-top: 15px;
+    padding: 0px 16px 0px 16px;
+    height: auto;
+    border-radius: 7px;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 14px;
+    background: $whitecolor;
+    &__flex{
+        @include table-flex();
+        @include font-style();
+        border-bottom: 1px solid #F7F7F7;
+        background-color: #fff;
+        height: 50px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        &-item{
+            background-color: #fff;
+            padding-top: 16px;
+            width: 150px;
+            @include font-style();
+            &-icon{
+                padding-top: 14px;
+                width: 12px;
+            }
+        }
+    }
+
+    .date{
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+    }
+
+    .user{
+    
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+        color: #0CB4F1;
+    }
+    
+}
+
+.modal {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(190, 190, 190, 0.4);
+    z-index: 3;
+    top: 0;
+    left: 0;
+    &-content {
+        &-confirm{
+                
+                margin-top: 36px;
+                margin-left: 36px;
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 15px;
+                &-buttons{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-start;
+                    justify-content: center;
+                    margin-top: 24px;
+                    align-items: center;
+                    padding: 6px 36px;
+                    gap: 36px;
+                    &-yes{
+                       
+                        & button{
+                            @include button-style();
+                            @include font-style();
+                            font-weight: 500;
+                            font-size: 12px;
+                            line-height: 15px;
+                            color: #828282;
+                            width: 95px;
+                            height: 27px;
+                            border-radius: 3px;
+                            background: #E0E0E0;
+                         }
+                     }
+                     &-no{
+                         & button{
+                            @include button-style();
+                            @include font-style();
+                            font-weight: 500;
+                            font-size: 12px;
+                            line-height: 15px;
+                            color: $whitecolor;
+                            width: 95px;
+                            height: 27px;
+                            border-radius: 3px;
+                            background: #0CB4F1;
+                         }
+                     }
+                }    
+        }
+        @include font-style();
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15px;
+        position: absolute;
+        width: 353px;
+        height: 134px;
+        max-width: 353px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);   
+    }
+}
